@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "safexl"
+dynamic = ["version"]
+description = 'Context Manager for interacting with Excel Application on Windows'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "samhaese", email = "63563702+samhaese@users.noreply.github.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/samhaese/safexl#readme"
+Issues = "https://github.com/samhaese/safexl/issues"
+Source = "https://github.com/samhaese/safexl"
+
+[tool.hatch.version]
+path = "src/safexl/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/safexl tests}"
+
+[tool.coverage.run]
+source_pkgs = ["safexl", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/safexl/__about__.py",
+]
+
+[tool.coverage.paths]
+safexl = ["src/safexl", "*/safexl/src/safexl"]
+tests = ["tests", "*/safexl/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
