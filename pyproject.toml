@@ -23,8 +23,11 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
+  "Operating System :: Microsoft :: Windows"
 ]
-dependencies = []
+dependencies = [
+  "pywin32"
+]
 
 [project.urls]
 Documentation = "https://github.com/samhaese/safexl#readme"
